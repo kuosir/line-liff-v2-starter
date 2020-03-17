@@ -6,6 +6,8 @@ const myLiffId = process.env.MY_LIFF_ID;
 app.use(express.static('public'));
 
 app.get('/send-id', function(req, res) {
+    console.log('myLiffId : %s',myLiffId);
+    console.log('func : %s',req.query.func);
     res.json({id: myLiffId, func: req.query.func});
 });
 
