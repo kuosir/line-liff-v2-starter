@@ -4,6 +4,7 @@ window.onload = function() {
 
     // DO NOT CHANGE THIS
     let myLiffId = "";
+    let qryFunc = "";
 
     // if node is used, fetch the environment variable and pass it to the LIFF method
     // otherwise, pass defaultLiffId
@@ -14,7 +15,9 @@ window.onload = function() {
             })
             .then(function(jsonResponse) {
                 myLiffId = jsonResponse.id;
+                qryFunc = jsonResponse.func;
                 initializeLiffOrDie(myLiffId);
+                document.getElementById('liffFuncName').textContent = qryFunc;
             })
             .catch(function(error) {
                 document.getElementById("liffAppContent").classList.add('hidden');
