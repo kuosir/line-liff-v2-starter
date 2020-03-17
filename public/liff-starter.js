@@ -16,6 +16,7 @@ window.onload = function() {
             .then(function(jsonResponse) {
                 myLiffId = jsonResponse.id;
                 qryFunc = jsonResponse.func;
+                console.log("id: %s ; func: %s", myLiffId , qryFunc);
                 initializeLiffOrDie(myLiffId);
                 document.getElementById('liffFuncName').textContent = qryFunc;
             })
