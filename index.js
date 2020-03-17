@@ -6,7 +6,7 @@ const myLiffId = process.env.MY_LIFF_ID;
 app.use(express.static('public'));
 
 app.get('/send-id', function(req, res) {
-    res.json({id: myLiffId});
+    res.json({id: myLiffId, func: req.query.func});
 });
 
 app.listen(port, () => console.log(`app listening on port ${port}!`));
