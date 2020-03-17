@@ -138,6 +138,22 @@ function registerButtonHandlers() {
             });
         }
     });
+    
+    // share call
+    document.getElementById('shareMessageButton').addEventListener('click', function() {
+        if (!liff.isInClient()) {
+            sendAlertIfNotInClient();
+        } else {
+            liff.shareTargetPicker([{
+                'type': 'text',
+                'text': "You've successfully sent a message! Hooray!"
+            }]).then(function() {
+                window.alert('Message share');
+            }).catch(function(error) {
+                window.alert('Error share message: ' + error);
+            });
+        }
+    });
 
     // scanCode call
     document.getElementById('scanQrCodeButton').addEventListener('click', function() {
